@@ -61,6 +61,7 @@ function songPick() {
                 let endtime = times.children[2];
                 let mo = new MutationObserver(function () {
                     if (nowtime.innerText == endtime.innerText) {
+                        console.log("end");
                         alert.play();
                     }
                 });
