@@ -7,31 +7,49 @@ function songPick() {
         }
     }
 
-    let request, res;
-    if (checkValue === "3m") {
-        request = new Request("https://api.vocamen.akai.pw/api/pick/ramen");
-        try {
-            res = fetch(request);
+    let xhr = new XMLHttpRequest();
+
+    try {
+        if (checkValue === "3m") {
+            xhr.open("GET", "https://api.vocamen.akai.pw/api/pick/ramen");
         }
-        catch (e) {
-            console.log("failed");
-            return;
+        else if (checkValue === "5m") {
+            xhr.open("GET", "https://api.vocamen.akai.pw/api/pick/ramen");
         }
-        if (res.status == 200) {
-            console.log(res.json());
-        }
+        xhr.send();
     }
-    if (checkValue === "5m") {
-        request = new Request("https://api.vocamen.akai.pw/api/pick/udon");
-        try {
-            res = fetch(request);
+    catch (e) {
+        console.log("failed");
+        return;
+    }
+    xhr.onload = function () {
+        response = JSON.parse(xhr.response)
+        console.log(response);
+        let videoArea = document.getElementById("video_area");
+        if (document.querySelector("#video_area script") != null) {
+            while(videoArea.lastChild){
+                videoArea.removeChild(videoArea.lastChild);
+            }
         }
-        catch (e) {
-            console.log("failed");
-            return;
-        }
-        if (res.status == 200) {
-            console.log(res.json())
-        }
+        let videoAreaW = videoArea.clientWidth;
+        let videoAreaH = videoArea.clientHeight;
+        let videoId = response.contentId;
+        let videoTitle = response.title;
+        let videoAuthor = response.author;
+        const script = document.createElement("script");
+        const noscript = document.createElement("noscript");
+        const vidA = document.createElement("a");
+        script.src = `https://embed.nicovideo.jp/watch/${videoId}/script?w=${videoAreaW}&h=${videoAreaH}`
+        vidA.href = `https://www.nicovideo.jp/watch/${videoId}`;
+        vidA.innerText = videoTitle;
+        videoArea.appendChild(script);
+        script.after(noscript);
+        noscript.appendChild(vidA);
+
+        let videoTitleElem = document.getElementById("video_title");
+        let videoAuthorElem = document.getElementById("video_author");
+
+        videoTitleElem.innerText = videoTitle;
+        videoAuthorElem.innerText = videoAuthor;
     }
 }
