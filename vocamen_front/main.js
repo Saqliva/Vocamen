@@ -14,7 +14,7 @@ function songPick() {
             xhr.open("GET", "https://api.vocamen.akai.pw/api/pick/ramen");
         }
         else if (checkValue === "5m") {
-            xhr.open("GET", "https://api.vocamen.akai.pw/api/pick/ramen");
+            xhr.open("GET", "https://api.vocamen.akai.pw/api/pick/udon");
         }
         xhr.send();
     }
