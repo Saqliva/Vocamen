@@ -195,7 +195,8 @@ body {
 }
 
 @media (orientation: portrait) {
-    #main {
+    #main,
+    #about_container {
         width: 100%;
     }
 }
