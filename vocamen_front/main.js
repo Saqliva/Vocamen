@@ -60,6 +60,7 @@ function songPick() {
                 let nowtime = times.children[0];
                 let endtime = times.children[2];
                 let mo = new MutationObserver(function () {
+                    console.log(nowtime.innerText);
                     if (nowtime.innerText == endtime.innerText) {
                         console.log("end");
                         alert.play();
@@ -75,6 +76,6 @@ function songPick() {
 }
 
 const silenceAudio = new Audio("silence.mp3");
-document.getElementById("pick_button").addEventListener("click", () => {
+document.getElementById("pick_button").addEventListener("mousedown", () => {
     silenceAudio.play();
 })
