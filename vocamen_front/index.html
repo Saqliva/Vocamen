@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <title>ボカ麺</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+</head>
+
+<body>
+    <div id="main">
+        <div id="banner">
+            <img id="vocamen_logo" src="./vocamen_plane.svg">
+            <span class="material-symbols-outlined" id="about_button" onclick="aboutOpen()">
+                help
+            </span>
+        </div>
+        <div id="video_area">
+
+        </div>
+        <div id="video_loading" class="hide"></div>
+        <div id="video_details">
+            <h2 id="video_title">選曲されていません</h2>
+            <p id="video_author">選曲されていません</p>
+        </div>
+
+        <div id="mainpanel">
+            <div id="radio_buttons">
+                <label class="radio_button">
+                    <input class="visually-hidden" type="radio" name="noodle_type" value="3m" checked>らぁめん(3分)
+                </label>
+                <label class="radio_button">
+                    <input class="visually-hidden" type="radio" name="noodle_type" value="5m">うどん(5分)
+                </label>
+            </div>
+            <label id="pick_button">
+                <input class="visually-hidden" type="button" name="pick_button" onclick="songPick()">選曲
+            </label>
+        </div>
+    </div>
+    <div class="hidden" id="about_container">
+        <span class="material-symbols-outlined" id="about_close" onclick="aboutClose()">
+            close
+        </span>
+        <div id="about">
+            <h1>待ち時間にディグろう。</h1>
+            <p>
+                　待ち時間にVOCALOID楽曲を聴いて楽しめるラーメン/うどんタイマー選曲アプリです。<br>
+            </p>
+            <h2>仕様</h2>
+            <p>
+                　「VOCALOID」と、「ラーメンタイマー」または「うどんタイマー」のタグがついた楽曲をランダムで選択します。<br>
+                　ラーメンの場合3分±10秒、うどんの場合は5分±10秒の曲が選曲されます。
+            </p>
+            <p>　楽曲データの更新は毎日AM7時~9時の間にかけて行われます。</p>
+            <p>　その他の技術仕様に関しては下記のGitHubリポジトリをご覧ください。</p>
+            <h2>各種リンク</h2>
+            <p>曲の除外等のお問い合わせはTwitter、不具合等はGitHubのIssueにどうぞ。</p>
+            <a href="https://twitter.com/4Kai4k" target=”_blank”>Twitter(あかい)</a><br>
+            <a href="https://github.com/Saqliva/Vocamen" target=”_blank”>GitHub(Vocamen) </a>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
