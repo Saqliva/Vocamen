@@ -53,7 +53,7 @@ function songPick() {
         videoAuthorElem.innerText = videoAuthor;
 
         if (document.querySelector("#video_area iframe") != null) {
-            let times = document.querySelector("#rootElementId > div > div.f187xx8z.unplayed > div.f1uocas > div > div.fhlq6hd > div.f15md5xn.center > div > div");
+            let times = document.querySelector("#rootElementId > div > div.f187xx8z > div.f1uocas > div > div.fhlq6hd > div.f15md5xn > div > div");
             let alert = new Audio("alert.mp3");
             if (times != null) {
                 let nowtime = times.children[0];
