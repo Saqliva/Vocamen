@@ -67,7 +67,8 @@ function songPick() {
                     }
                 });
                 let config = {
-                    childList: true
+                    childList: true,
+                    characterData: true
                 };
                 mo.observe(nowtime, config);
             }
