@@ -51,5 +51,31 @@ function songPick() {
 
         videoTitleElem.innerText = videoTitle;
         videoAuthorElem.innerText = videoAuthor;
+
+        if (document.querySelector("#video_area iframe") != null) {
+            let times = document.querySelector("#rootElementId > div > div.f187xx8z.unplayed > div.f1uocas > div > div.fhlq6hd > div.f15md5xn.center > div > div");
+            let alert = new Audio("alert.mp3");
+            if (times != null) {
+                let nowtime = times.children[0];
+                let endtime = times.children[2];
+                let mo = new MutationObserver(function () {
+                    console.log(`nowTime: ${nowtime.innerText}`);
+                    if (nowtime.innerText == endtime.innerText) {
+                        console.log("end");
+                        alert.play();
+                    }
+                });
+                let config = {
+                    childList: true,
+                    characterData: true
+                };
+                mo.observe(nowtime, config);
+            }
+        }
     }
 }
+
+const silenceAudio = new Audio("silence.mp3");
+document.getElementById("pick_button").addEventListener("mousedown", () => {
+    silenceAudio.play();
+})
