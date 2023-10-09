@@ -53,3 +53,13 @@ function songPick() {
         videoAuthorElem.innerText = videoAuthor;
     }
 }
+
+function aboutOpen() {
+    const aboutContainer = document.getElementById("about_container");
+    aboutContainer.className = "show";
+}
+
+function aboutClose() {
+    const aboutContainer = document.getElementById("about_container");
+    aboutContainer.className = "hidden";
+}

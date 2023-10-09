@@ -1,27 +1,58 @@
 * {
     margin: 0;
+    --white: #FFFFFF;
+    --sumi-1200: #000000;
+    --sumi-1100: #080808;
+    --sumi-1000: #111111;
+    --sumi-900: #1A1A1C;
+    --sumi-800: #414143;
+    --sumi-700: #626264;
+    --sumi-600: #757578;
+    --sumi-500: #949497;
+    --sumi-400: #B4B4B7;
+    --sumi-300: #D8D8DB;
+    --sumi-200: #E8E8EB;
+    --sumi-100: #F1F1F4;
+    --sumi-50: #F8F8FB;
+    --sea-700: #0031D8;
+    --forest-600: #259D63;
 }
 
 body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #2d2f35;
+    background-color: var(--sumi-800);
+    color: var(--white);
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 #main {
     height: 100%;
     width: 70%;
     max-width: 512px;
-    background-color: #24262b;
+    background-color: var(--sumi-900);
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
+#banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
 #vocamen_logo {
     width: 15%;
-    padding: 0.2rem 0;
+    padding: 0.3rem;
+    padding-left: 1rem;
+}
+
+#about_button {
+    padding-right: 1rem;
+    cursor: pointer;
 }
 
 #video_area {
@@ -40,11 +71,11 @@ body {
 #video_details {
     margin-top: 0.75rem;
     width: 90%;
-    color: white;
+    color: var(--white);
 }
 
 #video_author {
-    color: gray;
+    color: var(--sumi-500);
 }
 
 #mainpanel {
@@ -58,14 +89,17 @@ body {
 #radio_buttons {
     display: flex;
     width: 100%;
-    background-color: #3f4452;
+    font-weight: 600;
+    font-size: 1.2rem;
+    background-color: var(--sumi-700);
+    color: var(--sumi-500);
 }
 
 .radio_button {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 3em;
+    height: 3rem;
     width: 100%;
     cursor: pointer;
 }
@@ -74,11 +108,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 5em;
+    height: 5rem;
     width: 100%;
+    font-weight: 900;
+    font-size: 3rem;
     cursor: pointer;
     margin-top: 2px;
-    background-color: rgb(207, 66, 66);
+    background-color: var(--sea-700);
 }
 
 .visually-hidden {
@@ -93,7 +129,69 @@ body {
 }
 
 .radio_button:has(input:checked) {
-    background-color: rgb(66, 207, 130);
+    background-color: var(--forest-600);
+    color: var(--white);
+}
+
+#about_container {
+    position: fixed;
+    width: 70%;
+    max-width: 512px;
+    height: 100%;
+    transition: ease 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#about_container.hidden {
+    pointer-events: none;
+    opacity: 0;
+}
+
+#about_container.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+#about_close {
+    position: relative;
+    font-size: 2rem;
+    left: 50%;
+    transform: translateX(-110%);
+    cursor: pointer;
+}
+
+#about {
+    width: 80%;
+    padding: 1.5rem;
+    border-radius: 4px;
+    background-color: var(--sumi-900);
+}
+
+#about h1 {
+    margin-bottom: 6px;
+}
+
+#about h2 {
+    margin-top: 16px;
+    margin-bottom: 6px;
+}
+
+#about h1::after,
+#about h2::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: rgb(0, 231, 255);
+    background: linear-gradient(90deg, rgba(0, 231, 255, 1) 0%, rgba(0, 212, 142, 1) 100%);
+}
+
+#about a {
+    color: #8CDCE7;
 }
 
 @media (orientation: portrait) {
