@@ -1,4 +1,7 @@
-vocamen
-vocamen_gas
 package-lock.json
 .clasp.json
+node_modules
+.wrangler
+package-lock.json
+wrangler.toml
+.prettierrc
