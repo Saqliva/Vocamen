@@ -9,7 +9,6 @@ function onload() {
     let boxesHeight = 0;
     for (let i = 0; i < boxes.length; i++) {
         boxesHeight += boxes[i].offsetHeight;
-        console.log(boxes[i].offsetHeight);
     }
 
     const main = document.getElementById("main");
