@@ -21,12 +21,12 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
 </head>
 
-<body>
+<body onload="onload();">
     <img src="./curry_udon.png" width="0" height="0" class="preload" />
     <div id="main">
         <div id="banner">
             <img id="vocamen_logo" src="./vocamen_plane.svg">
-            <span class="material-symbols-outlined" id="about_button" onclick="aboutOpen()">
+            <span class="material-symbols-outlined" id="about_button" onclick="toggleAbout()">
                 help
             </span>
         </div>
@@ -40,6 +40,11 @@
         </div>
 
         <div id="mainpanel">
+            <div id="panel_hide_button" onclick="togglePanel()">
+                <span class="material-symbols-outlined">
+                    expand_more
+                </span>
+            </div>
             <div id="radio_buttons">
                 <label class="radio_button">
                     <input class="visually-hidden" type="radio" name="noodle_type" value="3m" checked>らぁめん(3分)
@@ -54,7 +59,7 @@
         </div>
     </div>
     <div class="hidden" id="about_container">
-        <span class="material-symbols-outlined" id="about_close" onclick="aboutClose()">
+        <span class="material-symbols-outlined" id="about_close" onclick="toggleAbout()">
             close
         </span>
         <div id="about">
@@ -69,10 +74,13 @@
             </p>
             <p>　楽曲データの更新は毎日AM7時~9時の間にかけて行われます。</p>
             <p>　その他の技術仕様に関しては下記のGitHubリポジトリをご覧ください。</p>
+            <h2>クレジット</h2>
+            <p>ロード中のアニメーションをBBからお借りしました。</p>
+            <a href="https://www.nicovideo.jp/watch/sm40354298">可不ちゃんのカレーうどん狂騒曲</a>
             <h2>各種リンク</h2>
             <p>曲の除外等のお問い合わせはTwitter、不具合等はGitHubのIssueにどうぞ。</p>
-            <a href="https://twitter.com/4Kai4k" target=”_blank”>Twitter(あかい)</a><br>
-            <a href="https://github.com/Saqliva/Vocamen" target=”_blank”>GitHub(Vocamen) </a>
+            <a href="https://twitter.com/4Kai4k" target="_blank">Twitter(あかい)</a><br>
+            <a href="https://github.com/Saqliva/Vocamen" target="_blank">GitHub(Vocamen) </a>
         </div>
     </div>
     <script src="main.js"></script>

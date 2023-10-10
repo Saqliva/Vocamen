@@ -1,3 +1,21 @@
+function onload() {
+    const boxes = [
+        document.getElementById("banner"),
+        document.getElementById("video_area"),
+        document.getElementById("video_details"),
+        document.getElementById("mainpanel")
+    ];
+
+    let boxesHeight = 0;
+    for (let i = 0; i < boxes.length; i++) {
+        boxesHeight += boxes[i].offsetHeight;
+        console.log(boxes[i].offsetHeight);
+    }
+
+    const main = document.getElementById("main");
+    main.style.minHeight = `${boxesHeight}px`;
+}
+
 function songPick() {
     const videoArea = document.getElementById("video_area");
     if (document.querySelector("#video_area script") != null) {
@@ -59,12 +77,22 @@ function songPick() {
     }
 }
 
-function aboutOpen() {
-    const aboutContainer = document.getElementById("about_container");
-    aboutContainer.className = "show";
+function togglePanel() {
+    const mainPanel = document.getElementById("mainpanel");
+    if (mainPanel.classList.contains("hidden")) {
+        mainPanel.classList.remove("hidden");
+    }
+    else {
+        mainPanel.classList.add("hidden");
+    }
 }
 
-function aboutClose() {
+function toggleAbout() {
     const aboutContainer = document.getElementById("about_container");
-    aboutContainer.className = "hidden";
+    if (aboutContainer.classList.contains("hidden")) {
+        aboutContainer.classList.remove("hidden");
+    }
+    else {
+        aboutContainer.classList.add("hidden");
+    }
 }
