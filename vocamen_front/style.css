@@ -53,6 +53,7 @@ body {
 #about_button {
     padding-right: 1rem;
     cursor: pointer;
+    user-select: none;
 }
 
 #video_area {
@@ -63,7 +64,7 @@ body {
     background-size: cover;
 }
 
-.preload{
+.preload {
     display: none;
 }
 
@@ -78,7 +79,7 @@ body {
 }
 
 #video_details {
-    margin-top: 0.75rem;
+    padding: 0.75rem 0;
     width: 90%;
     color: var(--white);
 }
@@ -93,6 +94,41 @@ body {
     width: inherit;
     max-width: inherit;
     padding: 2px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: ease 0.2s;
+}
+
+#mainpanel.hidden{
+    transform: translateY(100%);
+}
+
+#panel_hide_button {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    background-color: var(--sumi-1000);
+    border-top: 1px solid var(--sumi-700);
+    border-right: 1px solid var(--sumi-700);
+    border-left: 1px solid var(--sumi-700);
+    border-radius: 16px 16px 0 0;
+    transition: ease 0.2s;
+}
+
+#mainpanel.hidden #panel_hide_button{
+    transform: translateY(-100%);
+}
+
+#panel_hide_button span{
+    user-select: none;
+    transition: ease 0.5s;
+}
+
+#mainpanel.hidden #panel_hide_button span{
+    transform: rotateX(180deg);
 }
 
 #radio_buttons {
@@ -160,7 +196,7 @@ body {
     opacity: 0;
 }
 
-#about_container.show {
+#about_container {
     pointer-events: auto;
     opacity: 1;
 }
@@ -171,13 +207,16 @@ body {
     left: 50%;
     transform: translateX(-110%);
     cursor: pointer;
+    user-select: none;
 }
 
 #about {
     width: 80%;
+    max-height: 65%;
     padding: 1.5rem;
     border-radius: 4px;
     background-color: var(--sumi-900);
+    overflow: auto;
 }
 
 #about h1 {
