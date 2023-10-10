@@ -1,5 +1,16 @@
 function songPick() {
-    let noodleType = document.getElementsByName('noodle_type');
+    const videoArea = document.getElementById("video_area");
+    if (document.querySelector("#video_area script") != null) {
+        while (videoArea.lastChild) {
+            videoArea.removeChild(videoArea.lastChild);
+        }
+    }
+    videoArea.classList.add("video_loading");
+    const videoTitleElem = document.getElementById("video_title");
+    const videoAuthorElem = document.getElementById("video_author");
+    videoTitleElem.innerText = "選曲中...";
+    videoAuthorElem.innerText = "";
+    const noodleType = document.getElementsByName('noodle_type');
     let checkValue = '';
     for (let i = 0; i < noodleType.length; i++) {
         if (noodleType.item(i).checked) {
@@ -25,12 +36,6 @@ function songPick() {
     xhr.onload = function () {
         response = JSON.parse(xhr.response)
         console.log(response);
-        let videoArea = document.getElementById("video_area");
-        if (document.querySelector("#video_area script") != null) {
-            while (videoArea.lastChild) {
-                videoArea.removeChild(videoArea.lastChild);
-            }
-        }
         let videoAreaW = videoArea.clientWidth;
         let videoAreaH = videoArea.clientHeight;
         let videoId = response.contentId;
@@ -46,11 +51,11 @@ function songPick() {
         script.after(noscript);
         noscript.appendChild(vidA);
 
-        let videoTitleElem = document.getElementById("video_title");
-        let videoAuthorElem = document.getElementById("video_author");
-
         videoTitleElem.innerText = videoTitle;
         videoAuthorElem.innerText = videoAuthor;
+        setTimeout(() => {
+            videoArea.classList.remove("video_loading")
+        }, "1000");
     }
 }
 
