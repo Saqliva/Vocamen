@@ -100,7 +100,7 @@ body {
     transition: ease 0.2s;
 }
 
-#mainpanel.hidden{
+#mainpanel.hidden {
     transform: translateY(100%);
 }
 
@@ -118,16 +118,16 @@ body {
     transition: ease 0.2s;
 }
 
-#mainpanel.hidden #panel_hide_button{
+#mainpanel.hidden #panel_hide_button {
     transform: translateY(-100%);
 }
 
-#panel_hide_button span{
+#panel_hide_button span {
     user-select: none;
     transition: ease 0.5s;
 }
 
-#mainpanel.hidden #panel_hide_button span{
+#mainpanel.hidden #panel_hide_button span {
     transform: rotateX(180deg);
 }
 
@@ -240,6 +240,14 @@ body {
 
 #about a {
     color: #8CDCE7;
+}
+
+code {
+    display: block;
+    margin: 0.2rem 0;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background-color: var(--sumi-1000);
 }
 
 @media (orientation: portrait) {
