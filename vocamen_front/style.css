@@ -252,6 +252,7 @@ code {
     padding: 0.5rem;
     border-radius: 4px;
     background-color: var(--sumi-1000);
+    overflow-x: scroll;
 }
 
 @media (orientation: portrait) {
