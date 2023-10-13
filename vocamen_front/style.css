@@ -60,7 +60,7 @@ body {
     aspect-ratio: 16/9;
     width: 100%;
     height: auto;
-    background-image: url(./vocamen_taiki.png);
+    background-image: url(./vocamen_taiki.webp);
     background-size: cover;
 }
 
@@ -70,7 +70,7 @@ body {
 
 #video_area.video_loading {
     background-color: #D8D8D8;
-    background-image: url(./curry_udon.png);
+    background-image: url(./curry_udon.webp);
 }
 
 #video_area iframe {
@@ -240,6 +240,10 @@ body {
 
 #about a {
     color: #8CDCE7;
+}
+
+.banner_link img {
+    height: 48px;
 }
 
 code {
