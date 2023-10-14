@@ -1,4 +1,21 @@
 function onload() {
+    onResize();
+
+    let timeoutId = 0;
+    window.addEventListener("resize", function () {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            onResize();
+        }, 500);
+    }, false);
+
+    const agent = window.navigator.userAgent.toLowerCase()
+    if (agent.indexOf("firefox") != -1) {
+        alert("Firefoxでの閲覧を検出しました。\n動作への影響はありませんが、Firefoxの仕様上、らぁめん/うどんの選択状況が確認できない場合があります。ご了承ください。")
+    }
+}
+
+function onResize() {
     const boxes = [
         document.getElementById("banner"),
         document.getElementById("video_area"),
@@ -16,14 +33,6 @@ function onload() {
 
     const main = document.getElementById("main");
     main.style.minHeight = `${boxesHeight}px`;
-
-    let timeoutId = 0;
-    window.addEventListener("resize", function () {
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => {
-            onload();
-        }, 500);
-    }, false);
 }
 
 function songPick() {
