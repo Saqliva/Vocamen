@@ -4,8 +4,23 @@
 <head>
     <title>ボカ麺</title>
     <link rel="icon" href="favicon.ico" id="favicon">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
+    <link rel="manifest" href="/manifest.json">
+    <script src="sw.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register("sw.js")
+                    .then(function (registration) {
+                        console.log("serviceWorker registed.");
+                    }).catch(function (error) {
+                        console.warn("serviceWorker error.", error);
+                    });
+            }
+        });
+    </script>
     <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="images/icons-192.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="待ち時間に、1曲ディグろう。">
     <meta name="twitter:card" content="summary_large_image" />
@@ -159,20 +174,19 @@
             <p>曲の除外等のお問い合わせはTwitter、不具合等はGitHubのIssueにどうぞ。(Twitterでも可)</p>
             <a href="https://twitter.com/4Kai4k" target="_blank">Twitter(あかい)</a><br>
             <a href="https://github.com/Saqliva/Vocamen" target="_blank">GitHub(Vocamen) </a><br>
-            <a class="banner_link" href="https://hayunyah.wixsite.com/hayutea" target="_blank" aria-label="はゆ茶のホームページ"><img
-                    alt="はゆ茶のホームページ"
-                    alt="はゆ茶のサイト"
+            <a class="banner_link" href="https://hayunyah.wixsite.com/hayutea" target="_blank"
+                aria-label="はゆ茶のホームページ"><img alt="はゆ茶のホームページ" alt="はゆ茶のサイト"
                     src="https://static.wixstatic.com/media/d9c91e_b17da5ac38ed46019b57098dc33bcd9d~mv2.jpg/v1/fill/w_440,h_113,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/44_20230526184332.jpg"></a>
             <a class="banner_link" href="https://www.city.fukuoka.lg.jp/" target="_blank" aria-label="福岡市のホームページ"><img
                     alt="福岡市のホームページ"
                     src="https://www.city.fukuoka.lg.jp/data/open/cnt/3/4460/1/logo_5.gif?20181122093119"></a>
-            <a class="banner_link" href="https://www.pref.fukuoka.lg.jp/" aria-label="福岡県のホームページ"><img
-                    alt="福岡県のホームページ"
+            <a class="banner_link" href="https://www.pref.fukuoka.lg.jp/" aria-label="福岡県のホームページ"><img alt="福岡県のホームページ"
                     src="https://www.pref.fukuoka.lg.jp/uploaded/image/114158.jpg"></a>
             <p>DiscordID: akai.pw</p>
             <h2>古の文化</h2>
             <p>このサイトのバナーです<br>ご自由にどうぞ</p>
-            <a class="banner_link" href="https://vocamen.akai.pw" alt="ボカ麺のリンクバナー"><img src="./vocamen_link_banner.png" alt="ボカ麺のリンクバナー"></a><br>
+            <a class="banner_link" href="https://vocamen.akai.pw" alt="ボカ麺のリンクバナー"><img src="./vocamen_link_banner.png"
+                    alt="ボカ麺のリンクバナー"></a><br>
             <p>コピペ用↓</p>
             <code>
                 &lt;a href="https://vocamen.akai.pw" target="_blank"&gt;<br>&lt;img src="https://vocamen.akai.pw/vocamen_link_banner.png"&gt;<br>&lt;/a&gt;

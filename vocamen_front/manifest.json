@@ -1,0 +1,14 @@
+{
+    "name": "ボカ麺 / 1曲、ディグろう。",
+    "short_name": "ボカ麺",
+    "icons": [
+        {
+            "src": "apple-touch-icon-180x180.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#1a1a1c"
+}
