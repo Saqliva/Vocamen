@@ -129,6 +129,16 @@
             <h2 id="video_title">選曲されていません</h2>
             <p id="video_author">選曲されていません</p>
         </div>
+        <div id="pwa_sug" class>
+            <p>
+                <span class="bold">ホーム画面に追加</span>か、<span class="bold">インストール</span>をしていただくと、手間なく<span
+                    class="bold">ボカ麺</span>を起動できます。
+            </p>
+            <div>
+                <a onclick="pwa_close(true)">今後表示しない</a>
+                <a onclick="pwa_close(false)">閉じる</a>
+            </div>
+        </div>
 
         <div id="mainpanel">
             <div id="panel_hide_button" onclick="togglePanel()">
@@ -136,17 +146,20 @@
                     expand_more
                 </span>
             </div>
-            <div id="radio_buttons">
-                <label class="radio_button">
-                    <input class="visually-hidden" type="radio" name="noodle_type" value="3m" checked>らぁめん(3分)
-                </label>
-                <label class="radio_button">
-                    <input class="visually-hidden" type="radio" name="noodle_type" value="5m">うどん(5分)
+            <div id="main_buttons">
+                <div id="radio_buttons">
+                    <label class="radio_button">
+                        <input class="visually-hidden" type="radio" name="noodle_type" value="3m" checked>らぁめん(3分)
+                    </label>
+                    <label class="radio_button">
+                        <input class="visually-hidden" type="radio" name="noodle_type" value="5m">うどん(5分)
+                    </label>
+                </div>
+                <label id="pick_button">
+                    <input class="visually-hidden" type="button" name="pick_button" onclick="songPick()"
+                        aria-label="選曲">選曲
                 </label>
             </div>
-            <label id="pick_button">
-                <input class="visually-hidden" type="button" name="pick_button" onclick="songPick()" aria-label="選曲">選曲
-            </label>
         </div>
     </div>
     <div class="hidden" id="about_container">
