@@ -1,4 +1,8 @@
 var cookieObj = {};
+var shareData = {
+    videoId: "",
+    videoTitle: ""
+};
 
 function onload() {
     onResize();
@@ -68,8 +72,13 @@ function songPick() {
     videoArea.classList.add("video_loading");
     const videoTitleElem = document.getElementById("video_title");
     const videoAuthorElem = document.getElementById("video_author");
+    const shareAndLinkBtns = document.querySelector("#video_details div:nth-child(2)");
+    const shareButton = document.querySelector("#video_details div:nth-child(2) a:nth-child(1)");
+    const linkButton = document.querySelector("#video_details div:nth-child(2) a:nth-child(2)");
     videoTitleElem.innerText = "選曲中...";
     videoAuthorElem.innerText = "";
+    shareAndLinkBtns.classList.add("hidden");
+    linkButton.href = "";
     const noodleType = document.getElementsByName('noodle_type');
     let checkValue = '';
     for (let i = 0; i < noodleType.length; i++) {
@@ -114,10 +123,31 @@ function songPick() {
         videoTitleElem.innerText = videoTitle;
         videoAuthorElem.innerText = videoAuthor;
 
+        linkButton.href = `https://nico.ms/${videoId}`;
+        shareData.videoId = videoId;
+        shareData.videoTitle = videoTitle;
+
+        if (shareAndLinkBtns.classList.contains("hidden"))
+            shareAndLinkBtns.classList.remove("hidden");
+
         if (cookieObj.pwasuggest === "enabled") {
             const pwaSug = document.getElementById("pwa_sug");
             if (pwaSug) pwaSug.classList.add("show");
         }
+
+        shareButton.addEventListener("click", () => {
+            if (window.navigator.share) {
+                try {
+                    window.navigator.share({
+                        title: `ボカ麺`,
+                        text: `${shareData.videoTitle}\n#ボカ麺 で聴いています\nhttps://vocamen.akai.pw\n#${shareData.videoId}`,
+                        url: `https://nico.ms/${shareData.videoId}`,
+                    });
+                } catch (e) {
+                    alert(e.message);
+                }
+            }
+        });
 
         setTimeout(() => {
             videoArea.classList.remove("video_loading")
