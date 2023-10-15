@@ -83,8 +83,40 @@ body {
 }
 
 #video_details {
+    display: flex;
     padding: 0.75rem 0;
-    width: 90%;
+    width: 100%;
+    color: var(--white);
+}
+
+#video_details div:nth-child(1) {
+    width: 100%;
+    margin-left: 1.5rem;
+}
+
+#video_details div:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 8px;
+}
+
+#video_details div:nth-child(2).hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#video_details div a.material-symbols-outlined {
+    text-decoration: none;
+    padding: 2px;
+    margin: 6px;
+    cursor: pointer;
+    user-select: none;
+    color: var(--sumi-400);
+    transition: ease 0.2s;
+}
+
+#video_details div a.material-symbols-outlined:hover {
     color: var(--white);
 }
 
