@@ -21,6 +21,10 @@ function onload() {
         alert("Firefoxでの閲覧を検出しました。\n動作への影響はありませんが、Firefoxの仕様上、らぁめん/うどんの選択状況が確認できない場合があります。ご了承ください。")
     }
 
+    if (agent.indexOf("iphone") != -1 || agent.indexOf("ipad") != -1 || agent.indexOf("mac os x") != -1) {
+        document.querySelector("#video_details div:nth-child(2) a:nth-child(1)").innerText = "ios_share";
+    }
+
     if (!window.matchMedia('(display-mode: standalone)').matches) {
         console.log(cookieObj)
         if (cookieObj.pwasuggest == null) {
