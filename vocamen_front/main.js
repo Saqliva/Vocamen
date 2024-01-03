@@ -107,7 +107,7 @@ function songPick() {
         return;
     }
     xhr.onload = function () {
-        response = JSON.parse(xhr.response)
+        response = JSON.parse(xhr.response);
         console.log(response);
         let videoAreaW = videoArea.clientWidth;
         let videoAreaH = videoArea.clientHeight;
