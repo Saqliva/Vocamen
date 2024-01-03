@@ -1,3 +1,8 @@
+function getNiconicoSearchDataWrapper() {
+    delTriggers();
+    getNiconicoSearchData();
+}
+
 function getNiconicoSearchData() {
     let startTime = new Date();
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
@@ -93,6 +98,7 @@ function getNiconicoSearchData() {
         PropertiesService.getScriptProperties().deleteProperty("indexI");
         PropertiesService.getScriptProperties().deleteProperty("indexJ");
         console.log("=====end ramen=====");
+        delTriggers();
     }
 
     if (PropertiesService.getScriptProperties().getProperty("runningType") === "udon" || !PropertiesService.getScriptProperties().getProperty("runningType")) {
@@ -181,6 +187,7 @@ function getNiconicoSearchData() {
         PropertiesService.getScriptProperties().deleteProperty("indexI");
         PropertiesService.getScriptProperties().deleteProperty("indexJ");
         console.log("=====end udon=====");
+        delTriggers();
     }
 }
 
@@ -331,6 +338,15 @@ function getVideoInfo(contentId) {
     }
     videoInfo = Object.assign(videoInfo, tagsObj);
     return videoInfo;
+}
+
+function delTriggers() {
+    const triggers = ScriptApp.getProjectTriggers();
+    for (let trigger of triggers) {
+        if (trigger.getHandlerFunction() == "getNiconicoSearchData") {
+            ScriptApp.deleteTrigger(trigger);
+        }
+    }
 }
 
 function test() {
