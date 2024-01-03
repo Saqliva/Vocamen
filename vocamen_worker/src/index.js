@@ -21,7 +21,7 @@ export default {
         })
         let url
         if (requestUrl.pathname === "/api/search/ramen" || requestUrl.pathname === "/api/search/ramen/") {
-            url = `https://api.search.nicovideo.jp/api/v2/snapshot/video/contents/search?q=ラーメンタイマー VOCALOID&targets=tags&fields=contentId&_sort=-viewCounter&_context=testApp&_limit=100&_offset=${Number(offset) * 100}`;
+            url = `https://api.search.nicovideo.jp/api/v2/snapshot/video/contents/search?q=ラーメンタイマー VOCALOID OR ラアメンタイマア VOCALOID&targets=tags&fields=contentId&_sort=-viewCounter&_context=testApp&_limit=100&_offset=${Number(offset) * 100}`;
         }
         else if (requestUrl.pathname === "/api/search/udon" || requestUrl.pathname === "/api/search/udon/") {
             url = `https://api.search.nicovideo.jp/api/v2/snapshot/video/contents/search?q=うどんタイマー VOCALOID&targets=tags&fields=contentId&_sort=-viewCounter&_context=testApp&_limit=100&_offset=${Number(offset) * 100}`;
